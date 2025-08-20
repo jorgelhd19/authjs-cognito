@@ -3,6 +3,7 @@ import { redirect } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { signOutCognito } from "@/actions/auth"
 
 export default async function DashboardPage() {
   const session = await auth()
@@ -43,7 +44,7 @@ export default async function DashboardPage() {
             <form
               action={async () => {
                 "use server"
-                await signOut({ redirectTo: "/login" })
+                await signOutCognito()
               }}
               className="pt-4"
             >
