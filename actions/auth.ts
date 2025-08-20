@@ -8,6 +8,8 @@ export async function signInCognito() {
 }
 
 export async function signOutCognito() {
+  await signOut({ redirect: false });
+
   const clientId = process.env.AUTH_COGNITO_ID!;
   const logoutCallback = process.env.NEXTAUTH_URL!;
   const authUrl = process.env.AUTH_COGNITO_URL!;
